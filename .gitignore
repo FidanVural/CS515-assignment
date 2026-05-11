@@ -1,0 +1,20 @@
+# Data
+data/
+# Checkpoints (large .pth files)
+checkpoints/*.pth
+# Training logs
+*.log
+# Results (generated)
+results/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+# IDE
+.vscode/
+.idea/
+.cursor/
+# OS
+.DS_Store
+# Tensorboard
+checkpoints/tb_*/

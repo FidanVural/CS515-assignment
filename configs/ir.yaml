@@ -1,0 +1,35 @@
+# IR (Super-Resolution) Task — Default Hyperparameters
+# Loaded via: python main.py --task IR --config configs/ir.yaml
+
+task: IR
+mode: train
+
+# Data
+ir_data_dir: data/ir/DIV2K/DIV2K_train_HR   # 800 HR training images
+scale: 4                  # 2 or 4 — changes model upsampler and LR generation
+patch_size: 48            # LR patch size; HR patch = patch_size * scale
+
+# Training
+epochs: 500               # ~500K iterations total (800 images / batch_size * 500 epochs)
+batch_size: 32
+lr: 2.0e-4
+weight_decay: 0.0         # Adam, no weight decay needed for SR
+
+# Model
+ir_model_path: null       # Optional pretrained Swin2SR .pth path
+
+# System
+device: cuda
+num_workers: 8
+seed: 42
+log_interval: 20
+
+# Checkpoints & Results
+checkpoint_dir: checkpoints
+resume: null
+results_dir: results
+save_imgs: false          # Set true during test to save SR output images
+
+# Test folders (used with --mode test)
+# folder_gt:  data/ir/Set5/HR
+# folder_lq:  data/ir/Set5/LR_bicubic/X4
